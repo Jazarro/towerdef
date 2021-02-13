@@ -32,10 +32,6 @@ cd dwarf_seeks_fortune
 cargo run
 ```
 
-#### For Mac Users
-
-Open the [`Cargo.toml`](Cargo.toml) file and change from `vulkan` to `metal`. You have now changed the renderer backend to one that works on MacOS. This step will hopefully [become unnecessary](https://community.amethyst.rs/t/we-need-to-figure-out-a-way-to-adapt-the-features-of-the-amethyst-dependency-to-the-platform-the-game-is-being-compiled-on/1596?u=jazarro) in the future. 
-
 #### For Linux Users
 
 You might need to install some dependencies. Please refer to [this section](https://github.com/amethyst/amethyst#dependencies) of the Amethyst README for more details.
