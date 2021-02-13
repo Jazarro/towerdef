@@ -1,0 +1,36 @@
+[package]
+name = "dwarf_seeks_fortune"
+version = "0.1.0"
+authors = ["Jazarro <nospam.git@boschman.io>"]
+edition = "2018"
+
+[patch.crates-io]
+amethyst = { git = "https://github.com/amethyst/amethyst", rev = "5b0614c82ad9f05ac8ba1d2a54eab9ba2b78f74a" }
+
+[dependencies]
+amethyst = { version = "=0.15.3" }
+# We must import legion directly, because of https://github.com/amethyst/legion/issues/178
+legion = {version = "0.3"}
+
+
+log = { version = "0.4.6", features = [] }
+serde = { version = "1.0", features = ["derive"] }
+
+dsf_precompile = { path = "dsf_precompile" }
+dsf_core = { path = "dsf_core" }
+dsf_editor = { path = "dsf_editor" }
+
+[workspace]
+members = [
+    # Prepares some bundles. The main reason this is split off is to improve compilation times.
+    "dsf_precompile",
+    # Contains all the core game code.
+    "dsf_core",
+    # Contains all code partaining to the level editor.
+    "dsf_editor",
+    # Contains all code partaining to the automated checks.
+    # This crate is not currently in use, but will in time become a separate binary crate.
+    # The plan is for it to simulate game play to do various things like prove levels are solvable and prove that
+    # players can or can not make certain jumps.
+    "dsf_checks",
+]
